@@ -1,257 +1,37 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  
-  
-  <title>kali网络部署 | CtFeR</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="目前，kali的联网在每次更换网络环境时都需要重新部署一遍，故记录下这次成功经验，供日后回顾。 1.首先开放网卡供虚拟机连接打开控制面板-&gt;网络和Internet-&gt;网络和共享中心  点击连接，选择属性-&gt;共享  然后在网络和共享中心界面选择更改适配器设置，查看要用的虚拟机网卡信息  2.之后配置VMware虚拟机平台 打开VMWare的编辑-&gt;虚拟网络编辑器 将之前选择和">
-<meta property="og:type" content="article">
-<meta property="og:title" content="kali网络部署">
-<meta property="og:url" content="http://example.com/2023/12/01/kali%E7%BD%91%E7%BB%9C%E9%83%A8%E7%BD%B2/index.html">
-<meta property="og:site_name" content="CtFeR">
-<meta property="og:description" content="目前，kali的联网在每次更换网络环境时都需要重新部署一遍，故记录下这次成功经验，供日后回顾。 1.首先开放网卡供虚拟机连接打开控制面板-&gt;网络和Internet-&gt;网络和共享中心  点击连接，选择属性-&gt;共享  然后在网络和共享中心界面选择更改适配器设置，查看要用的虚拟机网卡信息  2.之后配置VMware虚拟机平台 打开VMWare的编辑-&gt;虚拟网络编辑器 将之前选择和">
-<meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://z1.ax1x.com/2023/12/01/pisimAH.png">
-<meta property="og:image" content="https://z1.ax1x.com/2023/12/01/pisi1jf.png">
-<meta property="og:image" content="https://z1.ax1x.com/2023/12/01/pisiGDS.png">
-<meta property="og:image" content="https://z1.ax1x.com/2023/12/01/pisiNNj.png">
-<meta property="og:image" content="https://z1.ax1x.com/2023/12/01/pisi0g0.png">
-<meta property="og:image" content="https://z1.ax1x.com/2023/12/01/pisiybF.png">
-<meta property="og:image" content="https://z1.ax1x.com/2023/12/01/pisigUJ.png">
-<meta property="article:published_time" content="2023-12-01T10:09:54.000Z">
-<meta property="article:modified_time" content="2023-12-01T10:10:37.440Z">
-<meta property="article:author" content="Nightshock789">
-<meta property="article:tag" content="kali，工具">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://z1.ax1x.com/2023/12/01/pisimAH.png">
-  
-    <link rel="alternate" href="/atom.xml" title="CtFeR" type="application/atom+xml">
-  
-  
-    <link rel="shortcut icon" href="/favicon.png">
-  
-  
-  
-<link rel="stylesheet" href="/css/style.css">
-
-  
-    
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
-
-  
-  
-<meta name="generator" content="Hexo 7.0.0"></head>
-
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">CtFeR</a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-        
-          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
-        
-        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
-      </div>
-    </div>
-  </div>
-</header>
-
-      <div class="outer">
-        <section id="main"><article id="post-kali网络部署" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2023/12/01/kali%E7%BD%91%E7%BB%9C%E9%83%A8%E7%BD%B2/" class="article-date">
-  <time class="dt-published" datetime="2023-12-01T10:09:54.000Z" itemprop="datePublished">2023-12-01</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="p-name article-title" itemprop="headline name">
-      kali网络部署
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>目前，kali的联网在每次更换网络环境时都需要重新部署一遍，故记录下这次成功经验，供日后回顾。</p>
-<h5 id="1-首先开放网卡供虚拟机连接"><a href="#1-首先开放网卡供虚拟机连接" class="headerlink" title="1.首先开放网卡供虚拟机连接"></a>1.首先开放网卡供虚拟机连接</h5><p>打开控制面板-&gt;网络和Internet-&gt;网络和共享中心</p>
-<p><a target="_blank" rel="noopener" href="https://imgse.com/i/pisimAH"><img src="https://z1.ax1x.com/2023/12/01/pisimAH.png" alt="pisimAH.png"></a></p>
-<p>点击连接，选择属性-&gt;共享</p>
-<p><a target="_blank" rel="noopener" href="https://imgse.com/i/pisi1jf"><img src="https://z1.ax1x.com/2023/12/01/pisi1jf.png" alt="pisi1jf.png"></a></p>
-<p>然后在网络和共享中心界面选择更改适配器设置，查看要用的虚拟机网卡信息</p>
-<p><a target="_blank" rel="noopener" href="https://imgse.com/i/pisiGDS"><img src="https://z1.ax1x.com/2023/12/01/pisiGDS.png" alt="pisiGDS.png"></a></p>
-<p>2.之后配置VMware虚拟机平台</p>
-<p>打开VMWare的编辑-&gt;虚拟网络编辑器</p>
-<p>将之前选择和物理机共享网络的虚拟网卡设置成NAT模式</p>
-<p>记录NAT设置里的网络网关ip和子网掩码，DHCP设置里的ip范围</p>
-<p><a target="_blank" rel="noopener" href="https://imgse.com/i/pisiNNj"><img src="https://z1.ax1x.com/2023/12/01/pisiNNj.png" alt="pisiNNj.png"></a></p>
-<p><a target="_blank" rel="noopener" href="https://imgse.com/i/pisi0g0"><img src="https://z1.ax1x.com/2023/12/01/pisi0g0.png" alt="pisi0g0.png"></a></p>
-<p>设置虚拟机网卡为自定义</p>
-<p><a target="_blank" rel="noopener" href="https://imgse.com/i/pisiybF"><img src="https://z1.ax1x.com/2023/12/01/pisiybF.png" alt="pisiybF.png"></a></p>
-<h5 id="3-kali虚拟机配置"><a href="#3-kali虚拟机配置" class="headerlink" title="3.kali虚拟机配置"></a>3.kali虚拟机配置</h5><p>用管理员权限打开配置文件</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/network/interfaces</span><br></pre></td></tr></table></figure>
-
-<p>填入之前记录的数据</p>
-<p><a target="_blank" rel="noopener" href="https://imgse.com/i/pisigUJ"><img src="https://z1.ax1x.com/2023/12/01/pisigUJ.png" alt="pisigUJ.png"></a></p>
-<p>之后重启网络服务</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/init.d/networking resatrt</span><br></pre></td></tr></table></figure>
-
-<p>可以ping通其他网站</p>
-<h5 id="4-坑"><a href="#4-坑" class="headerlink" title="4.坑"></a>4.坑</h5><p>目前不确定，如果多加两块虚拟网卡，是否可以实现不用每次一换网络环境就要重新配置</p>
-<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/582894948?utm_id=0">主要参考文章</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2023/12/01/kali%E7%BD%91%E7%BB%9C%E9%83%A8%E7%BD%B2/" data-id="clpmhbdjo000130yz6fxx70bz" data-title="kali网络部署" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/kali%EF%BC%8C%E5%B7%A5%E5%85%B7/" rel="tag">kali，工具</a></li></ul>
-
-    </footer>
-  </div>
-  
-    
-<nav id="article-nav">
-  
-  
-    <a href="/2023/12/01/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Hello World</div>
-    </a>
-  
-</nav>
-
-  
-</article>
+{% extends '_layout.swig' %}
+{% import '_macro/post.swig' as post_template %}
+{% import '_macro/sidebar.swig' as sidebar_template %}
 
 
-</section>
-        
-          <aside id="sidebar">
-  
-    
+{% block title %}{{ page.title }} | {{ config.title }}{% endblock %}
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/kali%EF%BC%8C%E5%B7%A5%E5%85%B7/" rel="tag">kali，工具</a></li></ul>
+{% block page_class %}page-post-detail{% endblock %}
+
+
+{% block content %}
+
+  <div id="posts" class="posts-expand">
+    {{ post_template.render(page) }}
+
+    <div class="post-spread">
+      {% if theme.jiathis %}
+        {% include '_partials/share/jiathis.swig' %}
+      {% elseif theme.baidushare %}
+        {% include '_partials/share/baidushare.swig' %}
+      {% elseif theme.add_this_id %}
+        {% include '_partials/share/add-this.swig' %}
+      {% elseif theme.duoshuo_shortname and theme.duoshuo_share %}
+        {% include '_partials/share/duoshuo_share.swig' %}
+      {% endif %}
     </div>
   </div>
 
+{% endblock %}
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/kali%EF%BC%8C%E5%B7%A5%E5%85%B7/" style="font-size: 10px;">kali，工具</a>
-    </div>
-  </div>
+{% block sidebar %}
+  {{ sidebar_template.render(true) }}
+{% endblock %}
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/12/">December 2023</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2023/12/01/kali%E7%BD%91%E7%BB%9C%E9%83%A8%E7%BD%B2/">kali网络部署</a>
-          </li>
-        
-          <li>
-            <a href="/2023/12/01/hello-world/">Hello World</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      
-      &copy; 2023 Nightshock789<br>
-      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
-
-
-<script src="/js/jquery-3.6.4.min.js"></script>
-
-
-
-  
-<script src="/fancybox/jquery.fancybox.min.js"></script>
-
-
-
-
-<script src="/js/script.js"></script>
-
-
-
-
-
-  </div>
-</body>
-</html>
+{% block script_extra %}
+  {% include '_scripts/pages/post-details.swig' %}
+{% endblock %}
